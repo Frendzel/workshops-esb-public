@@ -26,7 +26,6 @@
         <version>7.0.1</version>
     </parent>
 
-    <groupId>org.apache.servicemix.examples</groupId>
     <artifactId>activiti-examples</artifactId>
     <packaging>pom</packaging>
     <name>Apache ServiceMix :: Examples :: Activiti</name>
