@@ -41,8 +41,6 @@
                     <instructions>
                         <Bundle-SymbolicName>${project.name}</Bundle-SymbolicName>
                         <Bundle-Description>${project.description}</Bundle-Description>
-<!--                        <Bundle-Activator>pl.vavatech.app.App</Bundle-Activator>-->
-<!--                        <Export-Package>pl.vavatech.services</Export-Package>-->
                     </instructions>
                 </configuration>
             </plugin>
