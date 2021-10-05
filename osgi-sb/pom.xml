@@ -15,16 +15,15 @@
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>1.5.9.RELEASE</version>
-        <relativePath/> <!-- lookup parent from repository -->
+        <relativePath/>
     </parent>
 
     <properties>
-        <maven.compiler.source>8</maven.compiler.source>
-        <maven.compiler.target>8</maven.compiler.target>
-        <java.version>1.8</java.version>
-        <osgi.version>5.0.0</osgi.version>
+        <maven.compiler.source>7</maven.compiler.source>
+        <maven.compiler.target>7</maven.compiler.target>
+        <java.version>1.7</java.version>
+        <osgi.version>6.0.0</osgi.version>
         <bundle.plugin.version>3.3.0</bundle.plugin.version>
-        <docker.plugin.version>0.27.2</docker.plugin.version>
         <spring-osgi-io.version>1.2.1</spring-osgi-io.version>
     </properties>
 

@@ -2,6 +2,7 @@ package pl.vavatech;
 
 import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
+import org.springframework.boot.ExitCodeGenerator;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
@@ -19,13 +20,18 @@ public class SpringBootBundleActivator implements BundleActivator {
         Thread.currentThread().setContextClassLoader(this.getClass().getClassLoader());
         // trick to enable scan: get osgi resource pattern resolver
         OsgiBundleResourcePatternResolver resourceResolver = new OsgiBundleResourcePatternResolver(bundleContext.getBundle());
-        // and prvide it to spring application
+        // and provide it to spring application
         appContext = new SpringApplication(resourceResolver, SpringBootBundleActivator.class).run();
     }
 
     @Override
     public void stop(BundleContext bundleContext) {
-        SpringApplication.exit(appContext, () -> 0);
+        SpringApplication.exit(appContext, new ExitCodeGenerator() {
+            @Override
+            public int getExitCode() {
+                return 0;
+            }
+        });
     }
 
     public static void main(String[] args) {

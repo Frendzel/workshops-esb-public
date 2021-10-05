@@ -1,3 +1,3 @@
 # OSGI Spring Boot Demo
 
-TODO
+1. Implementacja Configuration Properties Loader wczytującego konfigurację z zewnątrz

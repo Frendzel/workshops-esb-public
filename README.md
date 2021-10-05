@@ -95,7 +95,7 @@ https://access.redhat.com/documentation/en-us/red_hat_jboss_fuse/6.2.1/html-sing
 
 # Rozgrzewka + teoria:
 0. ServiceMix dev commands:
-http://servicemix.apache.org/docs/7.x/commands/dev-restart.html#
+http://servicemix.apache.org/docs/7.x/commands/dev-restart.html# -> dev:restart
 
 1. Webconsole
 a) Instalujemy feature webconsoli:
@@ -177,17 +177,19 @@ https://en.wikipedia.org/wiki/Access-control_list
 
 # Praktyka czyni mistrza
 
-## Zadanie 1
-Run Servicemix + setup banner + create user
+## Zadanie 1 - DONE
+Run Servicemix + create user
 
-## Zadanie 2
+## Zadanie 2 - DONE
 Uruchom servicemix z debug mode
 
-## Zadanie 3
+## Zadanie 3 - DONE
 Uruchom webconsole (howtio)
 
-## Zadanie 4
-Zapoznaj się z prostymi przykładowymi aplikacjami
+## Zadanie 4 - DONE
+* Zapoznaj się z prostymi przykładowymi aplikacjami
+* deployment prostej aplikacji springbootowej jako bundle
+* osobny plik z logami z naszego pakietu
 
 ## Zadanie 5
 Zrób własny feature file na bundle i zaprojektuj aplikację, 
