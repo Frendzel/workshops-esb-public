@@ -36,4 +36,10 @@
         <feature version="${camel.version}">camel-jaxb</feature>
     </feature>
 
+    <feature name="booking-adapter-file" version="1.0-SNAPSHOT">
+        <bundle start-level="80">mvn:${project.groupId}/booking-adapter-file/${project.version}</bundle>
+        <feature version="${amq.version}">activemq-camel</feature>
+        <feature version="${project.version}">booking-commons</feature>
+    </feature>
+
 </features>

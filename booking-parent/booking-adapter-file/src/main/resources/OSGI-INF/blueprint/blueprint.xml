@@ -1,0 +1,39 @@
+<blueprint xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0"
+           xmlns:cm="http://aries.apache.org/blueprint/xmlns/blueprint-cm/v1.1.0"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://www.osgi.org/xmlns/blueprint/v1.0.0 http://www.osgi.org/xmlns/blueprint/v1.0.0/blueprint.xsd">
+
+    <cm:property-placeholder persistent-id="org.apache.servicemix.examples.cxf.receive" update-strategy="reload">
+        <cm:default-properties>
+            <cm:property name="brokerURL" value="tcp://localhost:61616"/>
+            <cm:property name="userName" value="karaf"/>
+            <cm:property name="password" value="karaf"/>
+            <cm:property name="trustAllPackages" value="true"/>
+            <cm:property name="filePath" value="file:target/file"/>
+        </cm:default-properties>
+    </cm:property-placeholder>
+
+    <bean id="connectionFactory" class="org.apache.activemq.ActiveMQConnectionFactory">
+        <property name="brokerURL" value="${brokerURL}"/>
+        <property name="userName" value="${userName}"/>
+        <property name="password" value="${password}"/>
+        <property name="trustAllPackages" value="true"/>
+    </bean>
+
+    <bean id="jmsConfig" class="org.apache.camel.component.jms.JmsConfiguration">
+        <property name="connectionFactory" ref="connectionFactory"/>
+    </bean>
+
+    <bean id="amq" class="org.apache.activemq.camel.component.ActiveMQComponent">
+        <property name="configuration" ref="jmsConfig"/>
+    </bean>
+
+    <camelContext id="booking-adapter-file" trace="true" xmlns="http://camel.apache.org/schema/blueprint">
+        <route id="booking-adapter-file-route">
+            <from uri="{{filePath}}" />
+            <!-- PROCESSING -->
+            <to uri="amq:incomingBookings" />
+        </route>
+    </camelContext>
+
+</blueprint>
