@@ -18,22 +18,24 @@
     </bean>
 
     <camelContext id="booking-router" trace="true" xmlns="http://camel.apache.org/schema/blueprint">
-        <from uri="amq:incomingBookings"/>
-<!--        <choice>-->
-<!--            &lt;!&ndash; DLA XML &ndash;&gt;-->
-<!--            <when>-->
-<!--                <simple></simple>-->
-<!--            </when>-->
-<!--            &lt;!&ndash; DLA CSV &ndash;&gt;-->
-<!--            <when>-->
-<!--                <simple></simple>-->
-<!--            </when>-->
-<!--            &lt;!&ndash; NOT SUPPORTED &ndash;&gt;-->
-<!--            <otherwise>-->
-<!--                <log logName="" message=""/>-->
-<!--            </otherwise>-->
-<!--        </choice>-->
-        <to uri="amq:bookings"/>
+        <route id="booking-router-route">
+            <from uri="amq:incomingBookings"/>
+            <!--        <choice>-->
+            <!--            &lt;!&ndash; DLA XML &ndash;&gt;-->
+            <!--            <when>-->
+            <!--                <simple></simple>-->
+            <!--            </when>-->
+            <!--            &lt;!&ndash; DLA CSV &ndash;&gt;-->
+            <!--            <when>-->
+            <!--                <simple></simple>-->
+            <!--            </when>-->
+            <!--            &lt;!&ndash; NOT SUPPORTED &ndash;&gt;-->
+            <!--            <otherwise>-->
+            <!--                <log logName="" message=""/>-->
+            <!--            </otherwise>-->
+            <!--        </choice>-->
+            <to uri="amq:bookings"/>
+        </route>
     </camelContext>
 
 </blueprint>
