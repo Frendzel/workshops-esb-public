@@ -14,6 +14,15 @@
         <feature version="${project.version}">booking-commons</feature>
     </feature>
 
+    <feature name="booking-adapter-rest" version="1.0-SNAPSHOT">
+        <bundle start-level="80">mvn:${project.groupId}/booking-adapter-rest/${project.version}</bundle>
+        <feature version="${camel.version}">camel-blueprint</feature>
+        <feature version="${camel.version}">camel-cxf</feature>
+        <feature version="${camel.version}">camel-core</feature>
+        <feature version="${amq.version}">activemq-camel</feature>
+        <feature version="${project.version}">booking-commons</feature>
+    </feature>
+
     <feature name="booking-backend" version="1.0-SNAPSHOT">
         <bundle start-level="80">mvn:${project.groupId}/booking-backend/${project.version}</bundle>
         <feature version="${project.version}">booking-commons</feature>
