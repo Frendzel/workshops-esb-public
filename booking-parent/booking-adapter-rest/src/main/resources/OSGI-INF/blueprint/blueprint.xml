@@ -39,7 +39,7 @@
     <!-- TRACE ONLY FOR DEV -->
     <camelContext id="booking-adapter-rest" trace="true" xmlns="http://camel.apache.org/schema/blueprint">
         <route id="booking-adapter-rest-route">
-            <from uri:="cxfrs:bean:bookingRestService"/>
+            <from uri="cxfrs:bean:bookingRestService"/>
             <inOnly uri="amq:incomingBookings"/>
             <transform>
                 <constant>OK</constant>
