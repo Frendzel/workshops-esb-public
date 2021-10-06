@@ -1,28 +1,29 @@
-<features xmlns="http://karaf.apache.org/xmlns/features/v1.2.1" name="booking-feature">
+<?xml version="1.0" encoding="UTF-8"?>
+<features xmlns="http://karaf.apache.org/xmlns/features/v1.0.0" name="booking-feature">
 
-    <feature name="booking-commons" version="${project.version}">
+    <feature name="booking-commons" version="1.0-SNAPSHOT">
         <bundle start-level="80">mvn:${project.groupId}/booking-commons/${project.version}</bundle>
     </feature>
 
-    <feature name="booking-adapter-soap" version="${project.version}">
+    <feature name="booking-adapter-soap" version="1.0-SNAPSHOT">
         <bundle start-level="80">mvn:${project.groupId}/booking-adapter-soap/${project.version}</bundle>
         <feature version="${camel.version}">camel-blueprint</feature>
         <feature version="${camel.version}">camel-cxf</feature>
         <feature version="${camel.version}">camel-core</feature>
-        <feature version="${camel.version}">activemq-camel</feature>
-        <feature version="${camel.version}">booking-commons</feature>
+        <feature version="${amq.version}">activemq-camel</feature>
+        <feature version="${project.version}">booking-commons</feature>
     </feature>
 
-    <feature name="booking-backend" version="${project.version}">
+    <feature name="booking-backend" version="1.0-SNAPSHOT">
         <bundle start-level="80">mvn:${project.groupId}/booking-backend/${project.version}</bundle>
-        <feature version="${camel.version}">booking-commons</feature>
-        <feature version="${camel.version}">activemq-camel</feature>
+        <feature version="${project.version}">booking-commons</feature>
+        <feature version="${amq.version}">activemq-camel</feature>
     </feature>
 
-    <feature name="booking-router" version="${project.version}">
+    <feature name="booking-router" version="1.0-SNAPSHOT">
         <bundle start-level="80">mvn:${project.groupId}/booking-router/${project.version}</bundle>
-        <feature version="${camel.version}">activemq-camel</feature>
-        <feature version="${camel.version}">booking-commons</feature>
+        <feature version="${amq.version}">activemq-camel</feature>
+        <feature version="${project.version}">booking-commons</feature>
         <feature version="${camel.version}">camel-jaxb</feature>
     </feature>
 

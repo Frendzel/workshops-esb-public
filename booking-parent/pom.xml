@@ -23,6 +23,7 @@
     <camel.version>2.16.5</camel.version>
     <amq.version>5.14.5</amq.version>
     <cxf.version>3.1.9</cxf.version>
+    <karaf.version>4.0.9</karaf.version>
 
   </properties>
 
