@@ -16,7 +16,13 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.source>1.7</maven.compiler.source>
     <maven.compiler.target>1.7</maven.compiler.target>
+    
     <bundle.felix.plugin>2.3.7</bundle.felix.plugin>
+
+    <slf4j.version>1.7.12</slf4j.version>
+    <camel.version>2.16.5</camel.version>
+    <amq.version>5.14.5</amq.version>
+
   </properties>
 
   <modules>

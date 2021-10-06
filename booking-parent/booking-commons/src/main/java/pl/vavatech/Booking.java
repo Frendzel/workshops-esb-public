@@ -11,6 +11,7 @@ import java.util.Objects;
         "lastName"
 })
 //TODO add support for CSV maybe?
+//TODO check if jaxb.index file is not needed for unmarhaller utilities versions?
 public class Booking implements Serializable {
 
     @XmlElement(required = true)
@@ -46,5 +47,13 @@ public class Booking implements Serializable {
     @Override
     public int hashCode() {
         return Objects.hash(firstName, lastName);
+    }
+
+    @Override
+    public String toString() {
+        return "Booking{" +
+                "firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                '}';
     }
 }
