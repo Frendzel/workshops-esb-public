@@ -193,7 +193,7 @@ Uruchom webconsole (howtio)
 
 ## Zadanie 5
 Zrób własny feature file na bundle i zaprojektuj aplikację, 
-która księguje zamówienia na podstawie 3 źródeł:
+która robi rezerwacje na podstawie 3 źródeł:
 1) SOAP
 2) REST
 3) Podrzucony plik
