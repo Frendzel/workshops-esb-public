@@ -1,0 +1,9 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:soap="http://vavatech.pl/">
+    <soapenv:Header/>
+    <soapenv:Body>
+        <soap:booking>
+            <firstName>Jan</firstName>
+            <lastName>Kowalski</lastName>
+        </soap:booking>
+    </soapenv:Body>
+</soapenv:Envelope>

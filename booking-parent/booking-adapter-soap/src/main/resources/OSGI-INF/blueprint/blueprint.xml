@@ -17,8 +17,8 @@
 
     <bean id="connectionFactory" class="org.apache.activemq.ActiveMQConnectionFactory">
         <property name="brokerURL" value="${brokerURL}"/>
-        <property name="userName" value="{userName}"/>
-        <property name="password" value="{password}"/>
+        <property name="userName" value="${userName}"/>
+        <property name="password" value="${password}"/>
         <property name="trustAllPackages" value="true"/>
     </bean>
 
@@ -30,6 +30,8 @@
         <property name="configuration" ref="jmsConfig"/>
     </bean>
 
+    <bean id="bookingHelper" class="pl.vavatech.BookingHelper" />
+
     <camelcxf:cxfEndpoint id="bookingEndpoint"
                           address="${CXFserver}${service}"
                           serviceClass="pl.vavatech.BookingEndpoint"/>
@@ -37,6 +39,12 @@
     <camelContext id="booking-adapter-soap" trace="true" xmlns="http://camel.apache.org/schema/blueprint">
         <route id="booking-adapter-soap-route">
             <from uri="cxf:bean:bookingEndpoint"/>
+            <bean ref="bookingHelper" />
+<!--            <log logName="Log body" message="${in}"/>-->
+            <setBody>
+                <simple>${in.body[0]}</simple>
+            </setBody>
+            <log logName="Log body" message="${body}"/>
             <inOnly uri="amq:incomingBookings"/>
             <transform>
                 <constant>OK</constant>

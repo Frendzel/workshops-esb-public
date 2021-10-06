@@ -20,20 +20,26 @@
     <camelContext id="booking-router" trace="true" xmlns="http://camel.apache.org/schema/blueprint">
         <route id="booking-router-route">
             <from uri="amq:incomingBookings"/>
-            <!--        <choice>-->
-            <!--            &lt;!&ndash; DLA XML &ndash;&gt;-->
-            <!--            <when>-->
-            <!--                <simple></simple>-->
-            <!--            </when>-->
-            <!--            &lt;!&ndash; DLA CSV &ndash;&gt;-->
-            <!--            <when>-->
-            <!--                <simple></simple>-->
-            <!--            </when>-->
-            <!--            &lt;!&ndash; NOT SUPPORTED &ndash;&gt;-->
-            <!--            <otherwise>-->
-            <!--                <log logName="" message=""/>-->
-            <!--            </otherwise>-->
-            <!--        </choice>-->
+<!--            <choice>-->
+<!--                <when>-->
+                    <!-- DLA XML -->
+<!--                    <simple>${header.CamelFileName} regex '^.*xml$'</simple>-->
+<!--                    <unmarshal>-->
+<!--                        <jaxb contextPath="pl.vavatech.commons"/>-->
+<!--                    </unmarshal>-->
+<!--                </when>-->
+<!--                <when>-->
+<!--                    <simple>${header.CamelFileName} regex '^.*(csv|csl)$'</simple>-->
+<!--                    &lt;!&ndash;<unmarshal ref="bindyDataFormat"/>&ndash;&gt;-->
+<!--                    <unmarshal>-->
+<!--                        <bindy classType="pl.vavatech.commons.Booking" type="Csv"/>-->
+<!--                    </unmarshal>-->
+<!--                    <convertBodyTo type="pl.vavatech.commons.Booking"/>-->
+<!--                </when>-->
+<!--                &lt;!&ndash; NOT SUPPORTED &ndash;&gt;-->
+<!--                <otherwise>-->
+<!--                </otherwise>-->
+<!--            </choice>-->
             <to uri="amq:bookings"/>
         </route>
     </camelContext>

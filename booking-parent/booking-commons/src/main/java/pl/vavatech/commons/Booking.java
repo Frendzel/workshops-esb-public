@@ -1,4 +1,4 @@
-package pl.vavatech;
+package pl.vavatech.commons;
 
 import javax.xml.bind.annotation.*;
 import java.io.Serializable;
@@ -13,6 +13,7 @@ import java.util.Objects;
 //TODO add support for CSV maybe?
 //TODO check if jaxb.index file is not needed for unmarhaller utilities versions?
 public class Booking implements Serializable {
+    private static final long serialVersionUID = 7593349011208666446L;
 
     @XmlElement(required = true)
     private String firstName;

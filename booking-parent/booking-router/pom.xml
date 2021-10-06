@@ -30,6 +30,11 @@
             <artifactId>slf4j-api</artifactId>
             <version>${slf4j.version}</version>
         </dependency>
+        <dependency>
+            <groupId>org.apache.camel</groupId>
+            <artifactId>camel-jaxb</artifactId>
+            <version>${camel.version}</version>
+        </dependency>
         <!-- CSV > CAMEL-JAXB, CAMEL->BINDY -->
     </dependencies>
     <build>
@@ -39,6 +44,11 @@
                 <artifactId>maven-bundle-plugin</artifactId>
                 <version>${bundle.felix.plugin}</version>
                 <extensions>true</extensions>
+                <configuration>
+                    <instructions>
+                        <Export-Package>!*</Export-Package>
+                    </instructions>
+                </configuration>
             </plugin>
         </plugins>
     </build>

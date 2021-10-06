@@ -22,6 +22,7 @@
     <slf4j.version>1.7.12</slf4j.version>
     <camel.version>2.16.5</camel.version>
     <amq.version>5.14.5</amq.version>
+    <cxf.version>3.1.9</cxf.version>
 
   </properties>
 
