@@ -1,0 +1,29 @@
+<features xmlns="http://karaf.apache.org/xmlns/features/v1.2.1" name="booking-feature">
+
+    <feature name="booking-commons" version="${project.version}">
+        <bundle start-level="80">mvn:${project.groupId}/booking-commons/${project.version}</bundle>
+    </feature>
+
+    <feature name="booking-adapter-soap" version="${project.version}">
+        <bundle start-level="80">mvn:${project.groupId}/booking-adapter-soap/${project.version}</bundle>
+        <feature version="${camel.version}">camel-blueprint</feature>
+        <feature version="${camel.version}">camel-cxf</feature>
+        <feature version="${camel.version}">camel-core</feature>
+        <feature version="${camel.version}">activemq-camel</feature>
+        <feature version="${camel.version}">booking-commons</feature>
+    </feature>
+
+    <feature name="booking-backend" version="${project.version}">
+        <bundle start-level="80">mvn:${project.groupId}/booking-backend/${project.version}</bundle>
+        <feature version="${camel.version}">booking-commons</feature>
+        <feature version="${camel.version}">activemq-camel</feature>
+    </feature>
+
+    <feature name="booking-router" version="${project.version}">
+        <bundle start-level="80">mvn:${project.groupId}/booking-router/${project.version}</bundle>
+        <feature version="${camel.version}">activemq-camel</feature>
+        <feature version="${camel.version}">booking-commons</feature>
+        <feature version="${camel.version}">camel-jaxb</feature>
+    </feature>
+
+</features>
