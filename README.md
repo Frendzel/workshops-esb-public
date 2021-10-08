@@ -191,7 +191,7 @@ Uruchom webconsole (howtio)
 * deployment prostej aplikacji springbootowej jako bundle
 * osobny plik z logami z naszego pakietu
 
-## Zadanie 5
+## Zadanie 5 - DONE
 Zrób własny feature file na bundle i zaprojektuj aplikację, 
 która robi rezerwacje na podstawie 3 źródeł:
 1) SOAP
@@ -200,18 +200,3 @@ która robi rezerwacje na podstawie 3 źródeł:
 
 Aplikacja powinna wykorzystywać activemq do komunikacji.
 Aplikacja powinna się składać z conajmniej 5 bundli.
-
-# Dockerfile*
-
-Podejście do deploymentu dockerowego
-
-docker run -d -t \
---name servicemix \
--p 1099:1099 \
--p 8101:8101 \
--p 8181:8181 \
--p 61616:61616 \
--p 36888:36888 \
--p 44444:44444 \
--v /host/path/deploy:/deploy \
-merbel/servicemix
